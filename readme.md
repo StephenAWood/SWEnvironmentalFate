@@ -1,5 +1,5 @@
 # SWEnvironmentalFate
-This is a collection of various tools and models to do environmental fate calculations.
+This is a collection of various tools and models to do environmental fate calculations. Currently, there is just one model / tool. In the future, and time permitting, I hope to add some more useful environmental fate tools here.
 
 By Stephen Wood. See the license file for details.
 
