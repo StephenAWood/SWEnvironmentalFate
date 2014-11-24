@@ -36,7 +36,7 @@ class SWEnvironmentalFateLevel1(object):
 
 		denominator_sum = sum([Z * V for Z, V in zip(self.fugacity_capacities, self.volumes)])
 
-		ret = {
+		ret = {}
 		for name, Z, V in zip(self.names, self.fugacity_capacities, self.volumes):
 			phi = Z * V / denominator_sum
 			ret.update({name : phi})
