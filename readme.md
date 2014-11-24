@@ -13,7 +13,7 @@ The most basic environmental fate calculation that calculates distribution of a 
 
 ## Equation
 
-[level1](figures/level_1_equation.pdf)
+[Equation (pdf)](figures/level_1_equation.pdf)
 
 ### Inputs:
 
