@@ -7,6 +7,57 @@
 # Other assumptions:
 # T = 25 degrees Celcius. All partition coefficients are valid for that temperature.
 
+class SWEnvironmentalFateLevel1(object):
+	"""docstring for SWEnvironmentalFateLevel1
+	Accepts an array for both arguments.
+
+	Volumes: volume of phases
+
+
+	"""
+
+	def __init__(self, volumes, fugacity_capacities, names = None):
+		super(SWEnvironmentalFateLevel1, self).__init__()
+		if len(volumes) != len(fugacity_capacities):
+			raise Exception('error, number of volumes must be equal to number of fugacity capacities')
+
+		self.volumes = volumes
+		self.fugacity_capacities = fugacity_capacities
+		self.names = names
+		if not self.names: self.names = [i + 1 for i in range(0, len(volumes))]
+		self.results = self.calculate()
+		self.print_results()
+
+	def calculate(self):
+		
+		# denominator_sum = 0.0
+		# for Z, V in zip(self.fugacity_capacities, self.volumes):
+		# 	denominator_sum += Z * V
+
+		denominator_sum = sum([Z * V for Z, V in zip(self.fugacity_capacities, self.volumes)])
+
+		ret = {
+		for name, Z, V in zip(self.names, self.fugacity_capacities, self.volumes):
+			phi = Z * V / denominator_sum
+			ret.update({name : phi})
+		return ret
+
+
+	def print_results(self):
+		for name, phi in self.results.items():
+			print 'The fraction in %s is %.3f' % (str(name), phi)
+
+
+
+###
+
+
+
+
+###
+
+		
+
 ### Chemical Properties
 name = 'Chloroform'
 log_Kow = 5
@@ -46,4 +97,18 @@ print 'The fraction in water is %.3f' % fraction_water
 
 # Sanity Check
 check = abs((fraction_air + fraction_oc + fraction_water) - 1.0) < 1.0e-6
+
 if not check: raise Exception('Error, fraction in all 3 phases does not add up to 1')
+
+
+
+##### Testing Other Part
+
+Z_air = 1.0 / (8.314 * 298.15)
+Z_water = Z_air * (10 ** log_Kaw) ** -1
+Z_octanol = (10 ** log_Kow) * Z_water
+
+calc = SWEnvironmentalFateLevel1([V_air, V_water, V_oc], [Z_air, Z_water, Z_octanol], names = ['air', 'water', 'octanol'])
+
+
+
