@@ -38,10 +38,9 @@ class SWEnvironmentalFateLevel1(object):
 
 		ret = {}
 		for name, Z, V in zip(self.names, self.fugacity_capacities, self.volumes):
-			phi = Z * V / denominator_sum
+			phi = Z * V / denominator_sum # Calculate fraction in specific phase
 			ret.update({name : phi})
 		return ret
-
 
 	def print_results(self):
 		for name, phi in self.results.items():

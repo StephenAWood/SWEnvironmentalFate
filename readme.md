@@ -9,7 +9,11 @@ By Stephen Wood. See the license file for details.
 # Documentation
 
 ## SWEnvironmentalFateLevel1
-The most basic environmental fate calculation that calculates distribution of a chemical between 3 phases: air, water, and organic carbon (soil + sediment), assuming equilibrium partitioning.
+The most basic environmental fate calculation that calculates distribution of a chemical between any number of phases, assuming equilibrium partitioning.
+
+## Equation
+
+![level1](figures/level_1_equation.pdf)
 
 ### Inputs:
 
