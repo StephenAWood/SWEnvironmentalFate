@@ -9,7 +9,24 @@ By Stephen Wood. See the license file for details.
 # Documentation
 
 ## SWEnvironmentalFateLevel1
-The most basic environmental fate calculation that calculates distribution of a chemical between 3 phases: air, water, and organic carbon (soil + sediment), assuming equilibrium partitioning.
+
+This class proceeds the framework for a basic level 1 environmental fate calculation. It works for a system with **any** number of phases.
+
+### Equation
+
+[Equation (pdf)](figures/level_1_equation.pdf)
+
+### Inputs:
+- Volume for each phase
+- Fugacity capacity for each phase
+- *(Optional)* Name of each phase
+
+### Output:
+
+An estimate for how much of the chemical resides in each phase (fractional amount).
+
+## SWUnitWorld
+The most basic environmental fate calculation that calculates distribution of a chemical in a basic unit world, involving 3 phases: air, water, soil/sediment.
 
 ### Inputs:
 
