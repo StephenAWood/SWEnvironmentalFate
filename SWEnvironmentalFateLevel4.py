@@ -4,8 +4,6 @@ from scipy.integrate import odeint
 from scipy.interpolate import spline
 import numpy as np
 import matplotlib.pyplot as plt
-# get_ipython().magic(u'matplotlib inline')
-
 
 # System Definitions
 
